@@ -4,7 +4,6 @@
 #define GRID_DLL_API __declspec(dllimport) 
 #endif
 
-
 #include "Coordinates.h"
 
 namespace GridLib {

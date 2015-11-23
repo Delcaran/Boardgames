@@ -1,4 +1,4 @@
-#ifdef GRID_DLL_EXPORTS
+#ifdef grid_EXPORTS // grid_EXPORTS is added by cmake with add_library(grid SHARED x.cpp y.cpp ...)
 #define GRID_DLL_API __declspec(dllexport) 
 #else
 #define GRID_DLL_API __declspec(dllimport) 

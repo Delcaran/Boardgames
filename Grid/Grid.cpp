@@ -3,6 +3,5 @@
 namespace GridLib {
   Grid::Grid() {}
 
-
   Grid::~Grid() {}
 }

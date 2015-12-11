@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.3 FATAL_ERROR)
 
-set (PROJECT_NAME Grid)
+set (PROJECT_NAME  HexGrid)
 project (${PROJECT_NAME} CXX C)
 
 #project sources
@@ -13,7 +13,7 @@ foreach (_headerFile ${PROJECT_HEADERS})
     get_filename_component(_dir ${_headerFile} PATH)
     list (APPEND PROJECT_INCLUDE_DIRS ${_dir})
 endforeach()
-
+list(APPEND PROJECT_INCLUDE_DIRS ../Grid)
 list(REMOVE_DUPLICATES PROJECT_INCLUDE_DIRS)
 
 include_directories(${PROJECT_INCLUDE_DIRS})
@@ -27,6 +27,10 @@ add_library(${PROJECT_NAME}
   SHARED 
   ${PROJECT_SOURCES} 
   ${PROJECT_HEADERS} 
+)
+
+target_link_libraries( ${PROJECT_NAME} 
+	Grid
 )
 
 set_target_properties(

@@ -1,4 +1,4 @@
-#ifdef grid_EXPORTS // grid_EXPORTS is added by cmake with add_library(grid SHARED x.cpp y.cpp ...)
+#ifdef Grid_EXPORTS // Grid_EXPORTS is added by cmake with add_library(Grid SHARED x.cpp y.cpp ...)
 #define GRID_DLL_API __declspec(dllexport) 
 #else
 #define GRID_DLL_API __declspec(dllimport) 
@@ -7,7 +7,7 @@
 #include "Coordinates.h"
 
 namespace GridLib {
-  class Grid {
+  class GRID_DLL_API Grid {
   public:
     Grid();
     virtual ~Grid();

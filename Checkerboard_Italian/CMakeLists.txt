@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.3 FATAL_ERROR)
 
-set (PROJECT_NAME  SquareGrid)
+set (PROJECT_NAME  ItalianCheckerboard)
 project (${PROJECT_NAME} CXX C)
 
 set (${PROJECT_NAME}_VERSION_MAJOR 0)
@@ -17,6 +17,9 @@ foreach (_headerFile ${PROJECT_HEADERS})
     list (APPEND PROJECT_INCLUDE_DIRS ${_dir})
 endforeach()
 list(APPEND PROJECT_INCLUDE_DIRS ../Grid)
+list(APPEND PROJECT_INCLUDE_DIRS ../SquareGrid)
+list(APPEND PROJECT_INCLUDE_DIRS ../Checkerboard)
+list(APPEND PROJECT_INCLUDE_DIRS ../Chessboard)
 list(REMOVE_DUPLICATES PROJECT_INCLUDE_DIRS)
 
 include_directories(${PROJECT_INCLUDE_DIRS})
@@ -33,7 +36,7 @@ add_library(${PROJECT_NAME}
 )
 
 target_link_libraries( ${PROJECT_NAME} 
-	Grid
+	Chessboard
 )
 
 set_target_properties(

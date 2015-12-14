@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GRID_CELL_H_
+#define GRID_CELL_H_
 
 #include "Coordinates.h"
 
@@ -14,3 +15,5 @@ class SquareCell : Cell {
 public:
 	SquareCell(int x, int y) : coordinates_(x, y) {};
 };
+
+#endif // GRID_COORDINATES_H_

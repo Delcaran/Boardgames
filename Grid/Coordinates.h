@@ -1,4 +1,6 @@
-#pragma once
+#ifndef GRID_COORDINATES_H_
+#define GRID_COORDINATES_H_
+
 struct Coordinates {
 	Coordinates();
 	virtual ~Coordinates();
@@ -22,3 +24,5 @@ struct Coordinates3 : Coordinates {
 	Coordinates3(int x, int y, int z);
 	~Coordinates3();
 };
+
+#endif // GRID_COORDINATES_H_

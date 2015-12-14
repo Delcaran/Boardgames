@@ -3,6 +3,6 @@
 #include "Grid.h"
 
 int main() {
-    std::cout << "Just testing if it compiles..." << std::endl;
+	std::cout << "Just testing if it compiles..." << std::endl;
 	return 0;
 }

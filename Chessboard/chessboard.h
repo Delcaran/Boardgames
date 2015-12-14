@@ -1,3 +1,9 @@
+/**
+8x8 checkerboard with black-white pattern and white lower right corner
+
+Despite its name, it's also used for checkers games.
+*/
+
 #ifndef CHESSBOARD_CHESSBOARD_H_
 #define CHESSBOARD_CHESSBOARD_H_
 
@@ -11,12 +17,11 @@
 #define CHESSBOARD_DLL_API __declspec(dllimport) 
 #endif
 
-namespace ChessboardLib {
-  class CHESSBOARD_DLL_API Chessboard {
+namespace SquareGridLib {
+  class CHESSBOARD_DLL_API Chessboard : SquareGridLib::Checkerboard {
   public:
     Chessboard();
     ~Chessboard();
-    void getCell();
   };
 }
 

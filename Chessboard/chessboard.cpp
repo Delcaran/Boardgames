@@ -1,6 +1,6 @@
 #include "chessboard.h"
 
-namespace ChessboardLib {
+namespace SquareGridLib {
   Chessboard::Chessboard() {}
 
   Chessboard::~Chessboard() {}

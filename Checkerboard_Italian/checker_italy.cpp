@@ -1,6 +1,6 @@
 #include "checker_italy.h"
 
-namespace ItalianCheckerboardLib {
+namespace SquareGridLib {
   ItalianCheckerboard::ItalianCheckerboard() {}
 
   ItalianCheckerboard::~ItalianCheckerboard() {}

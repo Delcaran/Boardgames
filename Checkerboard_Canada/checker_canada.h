@@ -1,3 +1,7 @@
+/**
+12x12 checkerboard with black-white pattern and white lower right corner
+*/
+
 #ifndef CANADIANCHECKERBOARD_CHECKERCANADA_H_
 #define CANADIANCHECKERBOARD_CHECKERCANADA_H_
 
@@ -11,12 +15,11 @@
 #define CANADIAN_CHECKERBOARD_DLL_API __declspec(dllimport) 
 #endif
 
-namespace CanadianCheckerboardLib {
-  class CANADIAN_CHECKERBOARD_DLL_API CanadianCheckerboard {
+namespace SquareGridLib {
+	class CANADIAN_CHECKERBOARD_DLL_API CanadianCheckerboard : SquareGridLib::Checkerboard {
   public:
     CanadianCheckerboard();
     ~CanadianCheckerboard();
-    void getCell();
   };
 }
 

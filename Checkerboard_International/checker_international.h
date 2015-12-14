@@ -1,3 +1,7 @@
+/**
+10x10 checkerboard with black-white pattern and white lower right corner
+*/
+
 #ifndef INTERNATIONALCHECKERBOARD_CHECKERNTERNATIONAL_H_
 #define INTERNATIONALCHECKERBOARD_CHECKERNTERNATIONAL_H_
 
@@ -11,12 +15,11 @@
 #define INTERNATIONAL_CHECKERBOARD_DLL_API __declspec(dllimport) 
 #endif
 
-namespace InternationalCheckerboardLib {
-  class INTERNATIONAL_CHECKERBOARD_DLL_API InternationalCheckerboard {
+namespace SquareGridLib {
+  class INTERNATIONAL_CHECKERBOARD_DLL_API InternationalCheckerboard : SquareGridLib::Checkerboard {
   public:
     InternationalCheckerboard();
     ~InternationalCheckerboard();
-    void getCell();
   };
 }
 

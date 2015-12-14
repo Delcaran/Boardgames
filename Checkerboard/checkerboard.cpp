@@ -1,6 +1,6 @@
 #include "checkerboard.h"
 
-namespace CheckerboardLib {
+namespace SquareGridLib {
   Checkerboard::Checkerboard() {}
 
   Checkerboard::~Checkerboard() {}

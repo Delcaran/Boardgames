@@ -1,7 +1,11 @@
 #include "chessboard.h"
 
 namespace SquareGridLib {
-  Chessboard::Chessboard() {}
+	namespace ChessLib {
+		Chessboard::Chessboard()
+			: Checkerboard(8, 8)
+		{};
 
-  Chessboard::~Chessboard() {}
+		Chessboard::~Chessboard() {}
+	}
 }

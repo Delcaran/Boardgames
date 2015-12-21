@@ -1,7 +1,7 @@
 /**
 A grid of squared cells. It may be a rectangular grid.
 
-0    1    2   . . . x
+		0    1    2   . . . x
 -------------------------
 0 | 0,0  1,0  2,0 . . . x,0
 1 | 0,1  1,1  2,1 . . . x,1
@@ -40,30 +40,33 @@ namespace SquareGridLib {
 		kDirectionMax
 	};
 
-	class SQUAREGRID_DLL_API SquareGrid {
+	class SQUAREGRID_DLL_API SquareGrid 
+		: public GridLib::Grid
+	{
+		protected:
 		unsigned int size_x_;
 		unsigned int size_y_;
 		bool linked_north_south_;
 		bool linked_east_west_;
 		std::vector<std::vector<SquareCell>> square_grid_;
 
-		SquareCell* GetCellDirection(const Coordinates2 starting_coord, const Direction dir, const unsigned int count);
-		void InitGrid();
-		void RebaseCoordinates(int &x, int &y);
+		virtual SquareCell* GetCellDirection(const Coordinates2 starting_coord, const Direction dir, const unsigned int count);
+		virtual void InitGrid();
+		virtual void RebaseCoordinates(int &x, int &y);
 
 	public:
 		SquareGrid();
 		SquareGrid(const unsigned int x, const unsigned int y, const bool north_south, const bool east_west);
 		virtual ~SquareGrid();
-		SquareCell* GetCell(const Coordinates2 coordinates);
-		SquareCell* GetCellNorth(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kNorth, count); };
-		SquareCell* GetCellEast(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kEast, count); };
-		SquareCell* GetCellSouth(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kSouth, count); };
-		SquareCell* GetCellWest(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kWest, count); };
-		SquareCell* GetCellNorthEast(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kNorthEast, count); };
-		SquareCell* GetCellSouthEast(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kSouthEast, count); };
-		SquareCell* GetCellSouthWest(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kSouthWest, count); };
-		SquareCell* GetCellNorthWest(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kNorthWest, count); };
+		virtual SquareCell* GetCell(const Coordinates2 coordinates);
+		virtual SquareCell* GetCellNorth(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kNorth, count); };
+		virtual SquareCell* GetCellEast(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kEast, count); };
+		virtual SquareCell* GetCellSouth(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kSouth, count); };
+		virtual SquareCell* GetCellWest(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kWest, count); };
+		virtual SquareCell* GetCellNorthEast(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kNorthEast, count); };
+		virtual SquareCell* GetCellSouthEast(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kSouthEast, count); };
+		virtual SquareCell* GetCellSouthWest(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kSouthWest, count); };
+		virtual SquareCell* GetCellNorthWest(const Coordinates2 starting_coord, const unsigned int count) { return GetCellDirection(starting_coord, kNorthWest, count); };
 	};
 }
 

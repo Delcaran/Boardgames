@@ -18,11 +18,21 @@ Despite its name, it's also used for checkers games.
 #endif
 
 namespace SquareGridLib {
-  class CHESSBOARD_DLL_API Chessboard : SquareGridLib::Checkerboard {
-  public:
-    Chessboard();
-    ~Chessboard();
-  };
+	namespace ChessLib {
+
+		enum CHESSBOARD_DLL_API Color {
+			kWhite,
+			kBlack
+		};
+
+		class CHESSBOARD_DLL_API Chessboard 
+			: public SquareGridLib::Checkerboard 
+		{
+		public:
+			Chessboard();
+			~Chessboard();
+		};
+	}
 }
 
 #endif // CHESSBOARD_CHESSBOARD_H_

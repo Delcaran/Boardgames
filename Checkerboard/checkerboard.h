@@ -15,12 +15,14 @@ Just a squared-cell pattern with alternate colors
 #endif
 
 namespace SquareGridLib {
-	class CHECKERBOARD_DLL_API Checkerboard : SquareGridLib::SquareGrid {
-  public:
-    Checkerboard();
-    virtual ~Checkerboard();
-    virtual void getCell() = 0;
-  };
+	class CHECKERBOARD_DLL_API Checkerboard 
+		: public SquareGridLib::SquareGrid 
+	{
+	public:
+		Checkerboard();
+		Checkerboard(const unsigned int size_x, const unsigned int size_y);
+		virtual ~Checkerboard();
+	};
 }
 
 #endif // CHECKERBOARD_CHECKERBOARD_H_

@@ -39,8 +39,10 @@ namespace SquareGridLib {
 				x = size_x_ - x;
 			}
 		} else {
-			if(x < 0 || x >= static_cast<int>(size_x_)) {
-				throw GridLib::ExceptionCellOutOfBounds();
+			if(x < 0) {
+				x = 0;
+			} else if(x >= static_cast<int>(size_x_)) {
+				x = size_x_ - 1;
 			}
 		}
 
@@ -50,8 +52,10 @@ namespace SquareGridLib {
 				y = size_y_ - y;
 			}
 		} else {
-			if(y < 0 || y >= static_cast<int>(size_y_)) {
-				throw GridLib::ExceptionCellOutOfBounds();
+			if(y < 0) {
+				y = 0;
+			} else if(y >= static_cast<int>(size_y_)) {
+				y = size_y_ - 1;
 			}
 		}
 	}

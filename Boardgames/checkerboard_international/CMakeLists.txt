@@ -32,9 +32,7 @@ add_library(${PROJECT_NAME}
   ${PROJECT_HEADERS} 
 )
 
-target_link_libraries( ${PROJECT_NAME} 
-	Checkerboard
-)
+target_link_libraries( ${PROJECT_NAME} Checkerboard)
 
 set_target_properties(
 	${PROJECT_NAME}

@@ -1,4 +1,4 @@
-#include "piece.h"
+#include "pieces.h"
 
 namespace SquareGridLib {
 	namespace ChessLib {

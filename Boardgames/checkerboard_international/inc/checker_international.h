@@ -16,11 +16,13 @@
 #endif
 
 namespace SquareGridLib {
-  class INTERNATIONAL_CHECKERBOARD_DLL_API InternationalCheckerboard : SquareGridLib::Checkerboard {
-  public:
-    InternationalCheckerboard();
-    ~InternationalCheckerboard();
-  };
+	class INTERNATIONAL_CHECKERBOARD_DLL_API InternationalCheckerboard 
+		: public SquareGridLib::Checkerboard 
+	{
+	public:
+		InternationalCheckerboard();
+		~InternationalCheckerboard();
+	};
 }
 
 #endif // INTERNATIONALCHECKERBOARD_CHECKERNTERNATIONAL_H_

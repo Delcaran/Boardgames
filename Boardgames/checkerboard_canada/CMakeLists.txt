@@ -1,7 +1,6 @@
 cmake_minimum_required (VERSION 3.3 FATAL_ERROR)
 
 set (PROJECT_NAME  CanadianCheckerboard)
-
 project (${PROJECT_NAME} CXX C)
 
 set (${PROJECT_NAME}_VERSION_MAJOR 0)
@@ -33,7 +32,7 @@ add_library(${PROJECT_NAME}
   ${PROJECT_HEADERS} 
 )
 
-target_link_libraries(${PROJECT_NAME} SquareGrid)
+target_link_libraries(${PROJECT_NAME} Checkerboard)
 
 set_target_properties(
 	${PROJECT_NAME}

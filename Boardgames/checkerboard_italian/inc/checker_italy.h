@@ -17,7 +17,7 @@ Chessboard with black lower right corner
 #endif
 
 namespace SquareGridLib {
-  class ItalianCheckerboard : SquareGridLib::Chessboard {
+  class ItalianCheckerboard : public SquareGridLib::ChessLib::Chessboard {
   public:
     ItalianCheckerboard();
     ~ItalianCheckerboard();

@@ -17,7 +17,7 @@ namespace SquareGridLib {
 		{
 		protected:
 			SquareCell* position; // pointer to the SquareCell inside SquareGrid::square_grid_ vector
-			std::string name
+			std::string name;
 
 		public:
 			Piece();

@@ -16,11 +16,13 @@
 #endif
 
 namespace SquareGridLib {
-	class CANADIAN_CHECKERBOARD_DLL_API CanadianCheckerboard : SquareGridLib::Checkerboard {
-  public:
-    CanadianCheckerboard();
-    ~CanadianCheckerboard();
-  };
+	class CANADIAN_CHECKERBOARD_DLL_API CanadianCheckerboard 
+		: public SquareGridLib::Checkerboard
+	{
+	public:
+		CanadianCheckerboard();
+		~CanadianCheckerboard();
+	};
 }
 
 #endif // CANADIANCHECKERBOARD_CHECKERCANADA_H_

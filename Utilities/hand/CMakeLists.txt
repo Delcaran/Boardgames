@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.3 FATAL_ERROR)
 
-set (PROJECT_NAME Grid)
+set (PROJECT_NAME Hand)
 project (${PROJECT_NAME} CXX C)
 
 set (${PROJECT_NAME}_VERSION_MAJOR 0)
@@ -10,6 +10,10 @@ set (${PROJECT_NAME}_VERSION_MINOR 1)
 include(inc/add_headers.in)
 
 # adding dependencies headers
+set(PROJECT_DEPENDENCIES card deck)
+foreach(_dep ${PROJECT_DEPENDENCIES})
+  list(APPEND PROJECT_INCLUDE_DIRS ../${_dep}/inc)
+endforeach()
 
 # cleaning headers
 list(REMOVE_DUPLICATES PROJECT_INCLUDE_DIRS)
@@ -30,6 +34,8 @@ add_library(${PROJECT_NAME}
   ${PROJECT_SOURCES} 
   ${PROJECT_HEADERS} 
 )
+
+target_link_libraries(${PROJECT_NAME} Deck)
 
 set_target_properties(
 	${PROJECT_NAME}

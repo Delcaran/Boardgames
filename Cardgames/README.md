@@ -1,1 +1,1 @@
-Some simple libraries to be used with cardgames, including some examples.
+These are some implementation of popular cardgames

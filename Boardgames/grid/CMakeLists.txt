@@ -1,25 +1,24 @@
 cmake_minimum_required (VERSION 3.3 FATAL_ERROR)
 
-set (PROJECT_NAME  HexGrid)
+set (PROJECT_NAME Grid)
 project (${PROJECT_NAME} CXX C)
 
 set (${PROJECT_NAME}_VERSION_MAJOR 0)
 set (${PROJECT_NAME}_VERSION_MINOR 1)
 
-#project sources
-file(GLOB_RECURSE PROJECT_SOURCES "*.cpp")
-file(GLOB_RECURSE PROJECT_HEADERS "*.h")
+# adding project headers
+include(inc/add_headers.in)
 
-#include directory
-set (PROJECT_INCLUDE_DIRS "")
-foreach (_headerFile ${PROJECT_HEADERS})
-    get_filename_component(_dir ${_headerFile} PATH)
-    list (APPEND PROJECT_INCLUDE_DIRS ${_dir})
-endforeach()
-list(APPEND PROJECT_INCLUDE_DIRS ../Grid)
+# adding dependencies headers
+
+# cleaning headers
 list(REMOVE_DUPLICATES PROJECT_INCLUDE_DIRS)
-
 include_directories(${PROJECT_INCLUDE_DIRS})
+
+# adding sources
+include(src/add_sources.in)
+# adding tests
+include(test/add_sources.in)
 
 message(STATUS "--------- ${PROJECT_NAME} ---------")
 message(STATUS "SOURCES = ${PROJECT_SOURCES}")
@@ -30,10 +29,6 @@ add_library(${PROJECT_NAME}
   SHARED 
   ${PROJECT_SOURCES} 
   ${PROJECT_HEADERS} 
-)
-
-target_link_libraries( ${PROJECT_NAME} 
-	Grid
 )
 
 set_target_properties(
@@ -49,5 +44,5 @@ install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
 	RUNTIME DESTINATION bin COMPONENT Runtime
   LIBRARY DESTINATION lib COMPONENT Runtime
 	ARCHIVE DESTINATION lib COMPONENT Runtime
-	PUBLIC_HEADER DESTINATION include COMPONENT Runtime
+	PUBLIC_HEADER DESTINATION inc COMPONENT Runtime
 )

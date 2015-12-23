@@ -1,26 +1,26 @@
 cmake_minimum_required (VERSION 3.3 FATAL_ERROR)
 
-set (PROJECT_NAME Grid)
+set (PROJECT_NAME  Checkerboard)
 project (${PROJECT_NAME} CXX C)
 
 set (${PROJECT_NAME}_VERSION_MAJOR 0)
 set (${PROJECT_NAME}_VERSION_MINOR 1)
 
-#project sources
-file(GLOB_RECURSE PROJECT_SOURCES "*.cpp")
-file(GLOB_RECURSE PROJECT_HEADERS "*.h")
+# adding project headers
+include(inc/add_headers.in)
 
-#include directory
-set (PROJECT_INCLUDE_DIRS "")
-foreach (_headerFile ${PROJECT_HEADERS})
-    get_filename_component(_dir ${_headerFile} PATH)
-    list (APPEND PROJECT_INCLUDE_DIRS ${_dir})
+# adding local dependencies headers
+set(PROJECT_DEPENDENCIES grid squaregrid)
+foreach(_dep ${PROJECT_DEPENDENCIES})
+  list(APPEND PROJECT_INCLUDE_DIRS ../${_dep}/inc)
 endforeach()
 
+# cleaning headers
 list(REMOVE_DUPLICATES PROJECT_INCLUDE_DIRS)
-
 include_directories(${PROJECT_INCLUDE_DIRS})
 
+# adding sources
+include(src/add_sources.in)
 message(STATUS "--------- ${PROJECT_NAME} ---------")
 message(STATUS "SOURCES = ${PROJECT_SOURCES}")
 message(STATUS "HEADERS = ${PROJECT_HEADERS}")
@@ -31,6 +31,8 @@ add_library(${PROJECT_NAME}
   ${PROJECT_SOURCES} 
   ${PROJECT_HEADERS} 
 )
+
+target_link_libraries(${PROJECT_NAME} SquareGrid)
 
 set_target_properties(
 	${PROJECT_NAME}

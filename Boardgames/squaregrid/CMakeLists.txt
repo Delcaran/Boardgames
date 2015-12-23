@@ -6,21 +6,18 @@ project (${PROJECT_NAME} CXX C)
 set (${PROJECT_NAME}_VERSION_MAJOR 0)
 set (${PROJECT_NAME}_VERSION_MINOR 1)
 
-#project sources
-file(GLOB_RECURSE PROJECT_SOURCES "*.cpp")
-file(GLOB_RECURSE PROJECT_HEADERS "*.h")
+# adding project headers
+include(inc/add_headers.in)
 
-#include directory
-set (PROJECT_INCLUDE_DIRS "")
-foreach (_headerFile ${PROJECT_HEADERS})
-    get_filename_component(_dir ${_headerFile} PATH)
-    list (APPEND PROJECT_INCLUDE_DIRS ${_dir})
-endforeach()
-list(APPEND PROJECT_INCLUDE_DIRS ../Grid)
+# adding dependencies header
+list(APPEND PROJECT_INCLUDE_DIRS ../grid/inc)
+
+# cleaning headers
 list(REMOVE_DUPLICATES PROJECT_INCLUDE_DIRS)
-
 include_directories(${PROJECT_INCLUDE_DIRS})
 
+# adding sources
+include(src/add_sources.in)
 message(STATUS "--------- ${PROJECT_NAME} ---------")
 message(STATUS "SOURCES = ${PROJECT_SOURCES}")
 message(STATUS "HEADERS = ${PROJECT_HEADERS}")
@@ -32,9 +29,7 @@ add_library(${PROJECT_NAME}
   ${PROJECT_HEADERS} 
 )
 
-target_link_libraries( ${PROJECT_NAME} 
-	Grid
-)
+target_link_libraries( ${PROJECT_NAME} Grid)
 
 set_target_properties(
 	${PROJECT_NAME}

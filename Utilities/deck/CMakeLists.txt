@@ -18,8 +18,6 @@ include_directories(${PROJECT_INCLUDE_DIRS})
 
 # adding sources
 include(src/add_sources.in)
-# adding tests
-include(test/add_sources.in)
 
 message(STATUS "--------- ${PROJECT_NAME} ---------")
 message(STATUS "SOURCES = ${PROJECT_SOURCES}")

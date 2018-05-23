@@ -11,7 +11,7 @@ include_directories(
 	)
 
 # Additional libraries include directories
-link_directories(${BOARDGAMES_OUT_DIR})
+link_directories(${TABLETOP_OUT_DIR})
 
 # Setting source groups
 set( SRC 
@@ -29,5 +29,7 @@ add_library(${PRJ_NAME}
 set_target_properties(${PRJ_NAME}  PROPERTIES DEBUG_POSTFIX "d")
 
 # Add linked libraries by configuration
-#target_link_libraries( ${PRJ_NAME} debug Libreriad optimized Libraria)
+target_link_libraries( ${PRJ_NAME} debug SquareGridd optimized SquareGrid )
+target_link_libraries( ${PRJ_NAME} debug Checkerboardd optimized Checkerboard )
+target_link_libraries( ${PRJ_NAME} debug Chessboardd optimized Chessboard )
 

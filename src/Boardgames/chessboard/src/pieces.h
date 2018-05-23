@@ -1,7 +1,7 @@
 #ifndef CHESSBOARD_PIECES_H_
 #define CHESSBOARD_PIECES_H_
 
-#include <chessboard.h>
+#include "chessboard.h"
 
 #include <string>
 

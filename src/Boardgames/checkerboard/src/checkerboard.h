@@ -16,7 +16,7 @@ Just a squared-cell pattern with alternate colors
 
 namespace SquareGridLib {
 	class CHECKERBOARD_DLL_API Checkerboard 
-		: public SquareGridLib::SquareGrid 
+		: public SquareGrid 
 	{
 	public:
 		Checkerboard();

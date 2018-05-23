@@ -4,14 +4,14 @@
 #include "common.h"
 #include "Coordinates.h"
 
-class GRID_DLL_API Cell {
+class Cell {
 public:
 	Cell() {};
 	virtual ~Cell() {};
 	virtual Coordinates coordinates() = 0;
 };
 
-class GRID_DLL_API SquareCell : Cell {
+class SquareCell : Cell {
 	Coordinates2 coordinates_;
 public:
 	SquareCell(int x, int y) : coordinates_(x, y) {};

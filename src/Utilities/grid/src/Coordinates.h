@@ -3,12 +3,12 @@
 
 #include "common.h"
 
-struct GRID_DLL_API Coordinates {
+struct Coordinates {
 	Coordinates() {};
 	virtual ~Coordinates() {};
 };
 
-struct GRID_DLL_API Coordinates2 : Coordinates {
+struct Coordinates2 : Coordinates {
 	int x;
 	int y;
 
@@ -17,7 +17,7 @@ struct GRID_DLL_API Coordinates2 : Coordinates {
 	~Coordinates2() {};
 };
 
-struct GRID_DLL_API Coordinates3 : Coordinates {
+struct Coordinates3 : Coordinates {
 	int x;
 	int y;
 	int z;

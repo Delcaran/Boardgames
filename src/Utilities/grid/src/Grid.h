@@ -10,14 +10,14 @@
 #include <string>
 
 namespace GridLib {
-	class GRID_DLL_API Grid {
+	class Grid {
 	public:
 		Grid() {};
 		virtual ~Grid() {};
 		virtual void getCell() = 0;
 	};
 
-	class GRID_DLL_API ExceptionCellOutOfBounds {};
+	class ExceptionCellOutOfBounds {};
 }
 
 #endif // GRID_GRID_H_

@@ -1,0 +1,7 @@
+cmake_minimum_required (VERSION 3.3 FATAL_ERROR)
+
+add_subdirectory(checkerboard)
+add_subdirectory(checkerboard_canada)
+add_subdirectory(checkerboard_international)
+add_subdirectory(chessboard)
+add_subdirectory(checkerboard_italian)

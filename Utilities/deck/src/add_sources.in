@@ -1,2 +1,0 @@
-#project sources
-file(GLOB_RECURSE PROJECT_SOURCES "*.cpp")

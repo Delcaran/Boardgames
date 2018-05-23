@@ -1,16 +1,12 @@
 cmake_minimum_required (VERSION 3.3 FATAL_ERROR)
 
-project (SquareGrid
-    VERSION 00.01.00.00
-    LANGUAGES CXX C)
+set(PRJ_NAME SquareGrid)
 
 # Additional include directories
-include_directories(
-	${BOARDGAMES_DIR}/grid/src
-	)
+include_directories(${GRID_INCLUDE})
 
 # Additional libraries include directories
-link_directories(${BOARDGAMES_OUT_DIR})
+#link_directories(${BOARDGAMES_OUT_DIR})
 
 # Setting source groups
 set( SRC 
@@ -20,13 +16,13 @@ set( SRC
 source_group("" FILES ${SRC})
 	
 # Creating target
-add_library(${PROJECT_NAME} 
+add_library(${PRJ_NAME} 
   SHARED 
   ${SRC}
 )
 
-set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX "d")
+set_target_properties(${PRJ_NAME}  PROPERTIES DEBUG_POSTFIX "d")
 
 # Add linked libraries by configuration
-target_link_libraries( ${PROJECT_NAME} debug Libreriad optimized Libraria)
+#target_link_libraries( ${PRJ_NAME} debug Libreriad optimized Libraria)
 

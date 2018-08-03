@@ -1,15 +1,22 @@
 #ifndef SBREGACAMESA_H
 #define SBREGACAMESA_H
 
+#ifdef Sbregacamesa_EXPORTS
+#define SBREGACAMESA_DLL_API __declspec(dllexport) 
+#else
+#define SBREGACAMESA_DLL_API __declspec(dllimport) 
+#endif
+
 #include <deck.h>
 
-class Sbregacamesa
+class SBREGACAMESA_DLL_API Sbregacamesa
 {
-    Deck _player_one, _player_two, _tallone;
-    Card *_requested;
+    CardLib::Deck _player_one, _player_two, _tallone;
     bool _player_one_turn;
+    unsigned int _estrai_max;
+    unsigned int _estratte;
 
-    bool ha_punti(const Card *card);
+    bool ha_punti(const CardLib::Card *card);
 
     public:
     Sbregacamesa();

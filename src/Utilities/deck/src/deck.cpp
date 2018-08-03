@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <random>
 
+namespace CardLib {
 Deck::Deck(std::deque< Card > &cards) : _cards(cards)
 {
 }
@@ -46,6 +47,7 @@ void Deck::append(Deck &deck)
 {
     for (unsigned int s = 0; s < deck.size(); ++s)
     {
-        _cards.push_back(*deck.draw());
+        _cards.insert(deck.draw());
     }
+}
 }

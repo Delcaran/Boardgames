@@ -25,6 +25,7 @@ add_library(${PRJ_NAME}
   SHARED 
   ${SRC}
 )
+add_dependencies(${PRJ_NAME} Checkerboard Chessboard)
 
 set_target_properties(${PRJ_NAME}  PROPERTIES DEBUG_POSTFIX "d")
 

@@ -16,10 +16,12 @@ set( SRC
 source_group("" FILES ${SRC})
 
 # Creating target
+add_definitions(-D${PRJ_NAME}_EXPORTS) # exporting dll
 add_library(${PRJ_NAME}
   SHARED
   ${SRC}
 )
+add_dependencies(${PRJ_NAME} Card)
 
 set_target_properties(${PRJ_NAME}  PROPERTIES DEBUG_POSTFIX "d")
 

@@ -8,6 +8,7 @@
 #endif
 
 #include <string>
+#include <sstream>
 
 namespace CardLib {
 class CARD_DLL_API Card
@@ -24,6 +25,18 @@ class CARD_DLL_API Card
     int points() const
     {
         return _points;
+    }
+
+    bool operator==(const Card& c) const
+    {
+      return (_name == c._name && _points == c._points);
+    }
+
+    std::string to_string() const
+    {
+      std::ostringstream oss;
+      oss << _name << ":" << _points;
+      return oss.str();
     }
 };
 }

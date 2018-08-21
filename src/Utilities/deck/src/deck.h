@@ -23,6 +23,10 @@ class DECK_DLL_API Deck
     Card *draw();
     void insert(Card *card);
     void append(Deck &deck);
+
+    bool operator==(const Deck &deck) const;
+    std::string to_string() const;
+
     unsigned int size() const
     {
         return _cards.size();

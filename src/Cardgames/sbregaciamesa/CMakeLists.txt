@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.3 FATAL_ERROR)
 
-set(PRJ_NAME Sbregacamesa)
+set(PRJ_NAME Sbregaciamesa)
 
 # Additional include directories
 include_directories(
@@ -13,8 +13,8 @@ link_directories(${TABLETOP_OUT_DIR})
 
 # Setting source groups
 set( SRC
-	src/sbregacamesa.h
-	src/sbregacamesa.cpp
+	src/Sbregaciamesa.h
+	src/Sbregaciamesa.cpp
 	)
 source_group("" FILES ${SRC})
 
@@ -50,12 +50,12 @@ set( SRC test/test.cpp )
 source_group("" FILES ${SRC})
 
 # Creating target
-add_executable(Sbregacamesa_test ${SRC} )
-add_dependencies(Sbregacamesa_test ${PRJ_NAME})
+add_executable(Sbregaciamesa_test ${SRC} )
+add_dependencies(Sbregaciamesa_test ${PRJ_NAME})
 
-set_target_properties(Sbregacamesa_test  PROPERTIES DEBUG_POSTFIX "d")
+set_target_properties(Sbregaciamesa_test  PROPERTIES DEBUG_POSTFIX "d")
 
 # Add linked libraries by configuration
-target_link_libraries( Sbregacamesa_test debug Deckd optimized Deck )
-target_link_libraries( Sbregacamesa_test debug Cardd optimized Card )
-target_link_libraries( Sbregacamesa_test debug Sbregacamesad optimized Sbregacamesa )
+target_link_libraries( Sbregaciamesa_test debug Deckd optimized Deck )
+target_link_libraries( Sbregaciamesa_test debug Cardd optimized Card )
+target_link_libraries( Sbregaciamesa_test debug Sbregaciamesad optimized Sbregaciamesa )

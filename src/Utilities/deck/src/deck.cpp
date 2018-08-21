@@ -47,7 +47,33 @@ void Deck::append(Deck &deck)
 {
     for (unsigned int s = 0; s < deck.size(); ++s)
     {
-        _cards.insert(deck.draw());
+      _cards.push_back(*deck.draw());
     }
 }
+
+bool Deck::operator==(const Deck &deck) const
+{
+  if (_cards.size() != deck.size())
+  {
+    return false;
+  }
+
+  bool uguale = true;
+  for (unsigned int s = 0; s < _cards.size(); ++s)
+  {
+    uguale = uguale && _cards.at(s) == deck._cards.at(s);
+  }
+  return uguale;
+}
+
+std::string Deck::to_string() const
+{
+  std::ostringstream oss;
+  for (unsigned int s = 0; s < _cards.size(); ++s)
+  {
+    oss << _cards.at(s).to_string() << ";";
+  }
+  return oss.str();
+}
+
 }

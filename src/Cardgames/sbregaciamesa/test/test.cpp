@@ -162,7 +162,7 @@ int main(int argc, char *argv[])
   }
 
   std::cout << std::endl;
-  std::cout << "Loops semplici : " << results[0] << std::endl;
+  std::cout << "Loop semplici : " << results[0] << std::endl;
   std::cout << "Vittorie Giocatore 1 : " << results[1] << " ( " << ((results[1] / num_partite) * 100.0) << " % )" << std::endl;
   std::cout << "Vittorie Giocatore 2 : " << results[2] << " ( " << ((results[2] / num_partite) * 100.0) << " % )" << std::endl;
   std::cout << "Errori : " << results[3] << std::endl;

@@ -2,89 +2,89 @@
 #include <cstdio>
 #include <map>
 #include <set>
+#include <list>
 
 #include <Sbregaciamesa.h>
 
-class Nodo
+class Vertex
 {
   std::string _name;
 public:
   bool _visited;
   std::set<unsigned int> _partite;
-  std::set < Nodo* > _ingressi;
-  std::set < Nodo* > _uscite;
+  std::set<Vertex*> _input; // genitori
+  std::set<Vertex*> _output; // figli
 
-  Nodo()
+  Vertex()
   {
     _name = "";
     _visited = false;
     _partite.clear();
-    _ingressi.clear();
-    _uscite.clear();
+    _input.clear();
+    _output.clear();
   }
-  Nodo(const std::string &name) : _name(name)
+  Vertex(const std::string &name) : _name(name)
   {
     _partite.clear();
-    _ingressi.clear();
-    _uscite.clear();
+    _input.clear();
+    _output.clear();
   }
 
-  ~Nodo()
+  ~Vertex()
   {
     _partite.clear();
-    _ingressi.clear();
-    _uscite.clear();
+    _input.clear();
+    _output.clear();
+  }
+
+  bool Vertex::operator==(const Vertex &v) const
+  {
+    return _name == v._name;
   }
 };
-typedef std::set < Nodo* > insieme_nodi_t;
-typedef insieme_nodi_t::iterator insieme_nodi_it;
 
-bool parse_node(Nodo* radix, insieme_nodi_t &stack_ricorsione)
+bool has_loops(std::map<std::string, Vertex> &vertici)
 {
-  if (!radix->_visited)
+  // Sfrutto l'algoritmo di Kahn per l'ordinamento topologico per individuare cicli
+  std::list<Vertex*> radixes; // nodi senza input
+  // riempio la lista delle radici
+  for (std::map<std::string, Vertex>::iterator nodo = vertici.begin(); nodo != vertici.end(); ++nodo)
   {
-    // marco il nodo corrente come visitato e lo aggiungo allo stack di ricorsione
-    radix->_visited = true;
-    stack_ricorsione.insert(radix);
-
-    // ricorro in tutti i vertici adiacenti
-    // uscite
-    for (insieme_nodi_it it = radix->_uscite.begin(); it != radix->_uscite.end(); ++it)
+    if (nodo->second._input.size() == 0)
     {
-      Nodo *nodo = (*it);
-      if (!nodo->_visited && parse_node(nodo, stack_ricorsione))
+      radixes.push_back(&nodo->second);
+    }
+  }
+  // partendo dai nodi senza input, cancello gli input da tutti i figli
+  while (!radixes.empty())
+  {
+    Vertex* n = radixes.front();
+    // rimuovo n dall'elenco degli ingressi nei figli di n
+    for (std::set<Vertex*>::iterator figlio = n->_output.begin(); figlio != n->_output.end(); ++figlio)
+    {
+      (*figlio)->_input.erase((*figlio)->_input.find(n));
+      if ((*figlio)->_input.empty())
       {
-        return true;
-      }
-      else if (stack_ricorsione.find(nodo) != stack_ricorsione.end())
-      {
-        return true;
+        // se il figlio non ha input, va nell'elenco delle radici
+        radixes.push_back(*figlio);
       }
     }
-
+    radixes.pop_front();
   }
-  stack_ricorsione.erase(radix);
-  return false;
-}
-
-void print_spinning()
-{
-  static unsigned int count = 0;
-  switch (count)
+  // se ora esistono nodi con input, vuol dire che esiste almeno un ciclo
+  for (std::map<std::string, Vertex>::iterator nodo = vertici.begin(); nodo != vertici.end(); ++nodo)
   {
-    case 0: printf("\b|"); break;
-    case 1: printf("\b/"); break;
-    case 2: printf("\b-"); break;
-    case 3: printf("\b\\"); break;
-    default:
-      count = 0;
+    if (nodo->second._input.size() != 0)
+    {
+      return true;
+    }
   }
-  fflush(stdout);
+  return false;
 }
 
 int main(int argc, char *argv[])
 {
-  std::map<std::string, Nodo> mani;
+  std::map<std::string, Vertex> mani;
   unsigned int num_partite = 10;
   if (argc > 1)
   {
@@ -107,9 +107,9 @@ int main(int argc, char *argv[])
       vincitore = nuovo_gioco.play_hand(mano);
 
       std::string stringa_fine = nuovo_gioco.to_string();
-      std::map<std::string, Nodo>::iterator itin = mani.find(stringa_inizio);
-      std::map<std::string, Nodo>::iterator itfi = mani.find(stringa_fine);
-      Nodo *inizio, *fine;
+      std::map<std::string, Vertex>::iterator itin = mani.find(stringa_inizio);
+      std::map<std::string, Vertex>::iterator itfi = mani.find(stringa_fine);
+      Vertex *inizio, *fine;
       if (itin != mani.end())
       {
         // questa mano era gia' presente: prendo l'indirizzo
@@ -119,7 +119,7 @@ int main(int argc, char *argv[])
       else
       {
         // nuova mano: aggiungo alla lista e prendo l'indirizzo
-        mani[stringa_inizio] = Nodo(stringa_inizio);
+        mani[stringa_inizio] = Vertex(stringa_inizio);
         inizio = &mani[stringa_inizio];
       }
 
@@ -137,13 +137,13 @@ int main(int argc, char *argv[])
       else
       {
         // nuova mano: aggiungo alla lista e prendo l'indirizzo
-        mani[stringa_fine] = Nodo(stringa_fine);
+        mani[stringa_fine] = Vertex(stringa_fine);
         fine = &mani[stringa_fine];
       }
 
-      inizio->_uscite.insert(fine);
+      inizio->_output.insert(fine);
       inizio->_partite.insert(partita);
-      fine->_ingressi.insert(inizio);
+      fine->_input.insert(inizio);
       fine->_partite.insert(partita);
     }
     results[vincitore]++;
@@ -168,27 +168,12 @@ int main(int argc, char *argv[])
   std::cout << "Errori : " << results[3] << std::endl;
 
   std::cout << "Avvio ricerca di loop complessi..." << std::endl;
-
-  // cerco le radici
-  insieme_nodi_t radixes;
-  for (std::map<std::string, Nodo>::iterator nodo = mani.begin(); nodo != mani.end(); ++nodo)
+  if (has_loops(mani))
   {
-    if (nodo->second._ingressi.size() == 0)
-    {
-      radixes.insert(&nodo->second);
-    }
+    std::cout << "Esiste almeno una partita infinita" << std::endl;
   }
 
-  // parso il grafo
-  for (insieme_nodi_it radice = radixes.begin(); radice != radixes.end(); ++radice)
-  {
-    insieme_nodi_t nodi;
-    if (parse_node(*radice, nodi))
-    {
-      std::cout << "Ho trovato un loop" << std::endl;
-    }
-  }
-
+  
   return 0;
 }
 

@@ -29,7 +29,7 @@ class DECK_DLL_API Deck
 
     unsigned int size() const
     {
-        return _cards.size();
+        return static_cast<unsigned int>(_cards.size());
     }
 };
 }

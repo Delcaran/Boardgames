@@ -32,30 +32,7 @@ set_target_properties(${PRJ_NAME}  PROPERTIES DEBUG_POSTFIX "d")
 target_link_libraries( ${PRJ_NAME} debug Deckd optimized Deck )
 target_link_libraries( ${PRJ_NAME} debug Cardd optimized Card )
 
-# TEST CONFIGURATION
-#====================
-
-# Additional include directories
-include_directories(
-	${CARD_INCLUDE}
-	${DECK_INCLUDE}
-	src
-	)
-
-# Additional libraries include directories
-link_directories(${TABLETOP_OUT_DIR})
-
-# Setting source groups
-set( SRC test/test.cpp )
-source_group("" FILES ${SRC})
-
-# Creating target
-add_executable(Sbregaciamesa_test ${SRC} )
-add_dependencies(Sbregaciamesa_test ${PRJ_NAME})
-
-set_target_properties(Sbregaciamesa_test  PROPERTIES DEBUG_POSTFIX "d")
-
-# Add linked libraries by configuration
-target_link_libraries( Sbregaciamesa_test debug Deckd optimized Deck )
-target_link_libraries( Sbregaciamesa_test debug Cardd optimized Card )
-target_link_libraries( Sbregaciamesa_test debug Sbregaciamesad optimized Sbregaciamesa )
+#===========
+# MAKE TEST
+#===========
+add_subdirectory(test)

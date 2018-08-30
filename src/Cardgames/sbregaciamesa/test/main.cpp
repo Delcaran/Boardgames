@@ -57,6 +57,7 @@
 #include <QMainWindow>
 
 #include <iostream>
+#include <set>
 
 /*
 bool has_loops(std::map<std::string, Vertex> &vertici)
@@ -101,9 +102,15 @@ bool has_loops(std::map<std::string, Vertex> &vertici)
 
 int main(int argc, char **argv)
 {
-    // prima gioco le partite
-    std::map<std::string, Vertex> mani;
-  unsigned int num_partite = 10;
+  QApplication app(argc, argv);
+  GraphWidget *widget = new GraphWidget;
+  QMainWindow mainWindow;
+  mainWindow.setCentralWidget(widget);
+
+  mainWindow.show();
+
+  std::set<std::string> mani;
+  unsigned int num_partite = 2;
   if (argc > 1)
   {
     num_partite = atoi(argv[1]);
@@ -114,52 +121,31 @@ int main(int argc, char **argv)
   for (unsigned int partita = 0; partita < num_partite; partita++)
   {
     Sbregaciamesa nuovo_gioco;
+    std::string str = nuovo_gioco.to_string();
+    if (mani.find(str) != mani.end())
+    {
+      // partita gia' giocata
+      continue;
+    }
+    mani.insert(str);
+    widget->addNode(&str); // mostro la mano iniziale nella gui
 
     unsigned int vincitore = 0;
     unsigned int mano = 0;
     bool old_match_found = false;
     while (!old_match_found && !vincitore)
     {
-      std::string stringa_inizio = nuovo_gioco.to_string();
+      std::string prev = nuovo_gioco.to_string();
       vincitore = nuovo_gioco.play_hand(mano);
-      /*
-      std::string stringa_fine = nuovo_gioco.to_string();
-      if (itin != mani.end())
+      // a questo punto nuovo_gioco rappresenta una nuova mano derivata da precedente
+      std::string next = nuovo_gioco.to_string();
+      old_match_found = (mani.find(next) != mani.end()); // controllo se si tratta di una mano gia' giocata
+      if (!old_match_found)
       {
-        // questa mano era gia' presente: prendo l'indirizzo
-        // NB: questo caso sara' praticamente sempre vero
-        inizio = &itin->second;
+        // le mani nuove le aggiungo alla lista e le mostro nella gui
+        widget->addNode(&next, &prev);
+        mani.insert(next);
       }
-      else
-      {
-        // nuova mano: aggiungo alla lista e prendo l'indirizzo
-        mani[stringa_inizio] = Vertex(stringa_inizio);
-        inizio = &mani[stringa_inizio];
-      }
-
-      if (itfi != mani.end() && itfi != itin)
-      {
-        // questa mano era gia' presente e non e' quella di partenza: prendo l'indirizzo
-        fine = &itfi->second;
-        old_match_found = true;
-        if (fine->_partite.find(partita) != fine->_partite.end())
-        {
-          //std::cout << "Trovato loop semplice! Partita infinita?" << std::endl;
-          results[vincitore]++; // aumento contatore dei loop
-        }
-      }
-      else
-      {
-        // nuova mano: aggiungo alla lista e prendo l'indirizzo
-        mani[stringa_fine] = Vertex(stringa_fine);
-        fine = &mani[stringa_fine];
-      }
-
-      inizio->_output.insert(fine);
-      inizio->_partite.insert(partita);
-      fine->_input.insert(inizio);
-      fine->_partite.insert(partita);
-      */
     }
     results[vincitore]++;
     std::cout << ".";
@@ -180,14 +166,5 @@ int main(int argc, char **argv)
   }
   */
 
-
-    QApplication app(argc, argv);
-
-    GraphWidget *widget = new GraphWidget;
-
-    QMainWindow mainWindow;
-    mainWindow.setCentralWidget(widget);
-
-    mainWindow.show();
-    return app.exec();
+  return app.exec();
 }

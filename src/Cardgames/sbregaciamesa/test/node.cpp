@@ -58,8 +58,8 @@
 #include <QPainter>
 #include <QStyleOption>
 
-Node::Node(GraphWidget *graphWidget)
-    : graph(graphWidget)
+Node::Node(GraphWidget *graphWidget, std::string *mano)
+    : graph(graphWidget), _mano(*mano)
 {
     setFlag(ItemIsMovable);
     setFlag(ItemSendsGeometryChanges);
@@ -76,6 +76,11 @@ void Node::addEdge(Edge *edge)
 QList<Edge *> Node::edges() const
 {
     return edgeList;
+}
+
+std::string Node::getMano() const
+{
+  return _mano;
 }
 
 void Node::calculateForces()
@@ -152,18 +157,35 @@ void Node::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     painter->setBrush(Qt::darkGray);
     painter->drawEllipse(-7, -7, 20, 20);
 
-    QRadialGradient gradient(-3, -3, 10);
-    if (option->state & QStyle::State_Sunken) {
-        gradient.setCenter(3, 3);
-        gradient.setFocalPoint(3, 3);
-        gradient.setColorAt(1, QColor(Qt::yellow).light(120));
-        gradient.setColorAt(0, QColor(Qt::darkYellow).light(120));
-    } else {
-        gradient.setColorAt(0, Qt::yellow);
-        gradient.setColorAt(1, Qt::darkYellow);
+    bool ha_figli = false;
+    bool ha_genitori = false;
+    foreach(Edge *edge, edgeList)
+    {
+      if(edge->sourceNode() == this)
+      {
+        ha_figli = true;
+      }
+      if (edge->destNode() == this)
+      {
+        ha_genitori = true;
+      }
     }
-    painter->setBrush(gradient);
-
+    QColor color;
+    if (ha_figli && !ha_genitori)
+    {
+      // inizio partita
+      color = Qt::green;
+    }
+    else if (!ha_figli && ha_genitori)
+    {
+      // fine partita
+      color = Qt::red;
+    }
+    else
+    {
+      color = Qt::yellow;
+    }
+    painter->setBrush(color);
     painter->setPen(QPen(Qt::black, 0));
     painter->drawEllipse(-10, -10, 20, 20);
 }

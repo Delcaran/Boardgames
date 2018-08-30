@@ -147,6 +147,11 @@ bool Sbregaciamesa::operator==(const Sbregaciamesa &game) const
   return uno && due && tallone && turno;
 }
 
+bool Sbregaciamesa::operator<(const Sbregaciamesa &game) const
+{
+  return to_string() < game.to_string();
+}
+
 bool Sbregaciamesa::compare(const std::string &gamestring) const
 {
   return to_string() == gamestring;

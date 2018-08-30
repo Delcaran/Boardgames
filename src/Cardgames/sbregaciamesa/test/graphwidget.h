@@ -52,6 +52,8 @@
 #ifndef GRAPHWIDGET_H
 #define GRAPHWIDGET_H
 
+#include <sbregaciamesa.h>
+
 #include <QGraphicsView>
 
 class Node;
@@ -64,6 +66,7 @@ public:
     GraphWidget(QWidget *parent = 0);
 
     void itemMoved();
+    void addNode(std::string *mano, std::string *precedente = nullptr);
 
 public slots:
     void shuffle();

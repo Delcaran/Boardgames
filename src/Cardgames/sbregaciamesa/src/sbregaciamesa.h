@@ -28,6 +28,7 @@ class Sbregaciamesa_DLL_API Sbregaciamesa
     unsigned int play_hand(unsigned int &mano);
 
     bool operator==(const Sbregaciamesa &game) const;
+    bool operator<(const Sbregaciamesa &game) const;
     bool compare(const std::string &gamestring) const;
     std::string to_string() const;
 };

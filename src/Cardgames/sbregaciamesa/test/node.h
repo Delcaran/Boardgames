@@ -52,8 +52,12 @@
 #ifndef NODE_H
 #define NODE_H
 
+#include <sbregaciamesa.h>
+
 #include <QGraphicsItem>
 #include <QList>
+
+#include <string>
 
 class Edge;
 class GraphWidget;
@@ -62,10 +66,11 @@ class QGraphicsSceneMouseEvent;
 class Node : public QGraphicsItem
 {
 public:
-    Node(GraphWidget *graphWidget);
+  Node(GraphWidget *graphWidget, std::string *mano);
 
     void addEdge(Edge *edge);
     QList<Edge *> edges() const;
+    std::string getMano() const;
 
     enum { Type = UserType + 1 };
     int type() const override { return Type; }
@@ -84,6 +89,7 @@ protected:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
 
 private:
+    std::string _mano;
     QList<Edge *> edgeList;
     QPointF newPos;
     GraphWidget *graph;

@@ -8,11 +8,7 @@ namespace CardDeck
 {
     public abstract class Deck
     {
-        private SortedList<int, Card> _cards;
-
-        public Deck()
-        {
-        }
+        protected SortedList<int, Card> _cards;
 
         // shuffle with Durstenfeld's algorithm
         public void Shuffle()

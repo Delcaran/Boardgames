@@ -61,7 +61,154 @@ namespace ArkhamHorrorCore.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to &lt;monster&gt;
+        ///  &lt;number&gt;
+        ///    &lt;base&gt;3&lt;/base&gt;
+        ///  &lt;/number&gt;
+        ///  &lt;name&gt;Byakee&lt;/name&gt;
+        ///  &lt;movement&gt;Flying&lt;/movement&gt;
+        ///  &lt;awareness&gt;-2&lt;/awareness&gt;
+        ///  &lt;dimension&gt;Circle&lt;/dimension&gt;
+        ///  &lt;horror&gt;
+        ///    &lt;rating&gt;-1&lt;/rating&gt;
+        ///    &lt;damage&gt;1&lt;/damage&gt;
+        ///  &lt;/horror&gt;
+        ///  &lt;toughness&gt;1&lt;/toughness&gt;
+        ///  &lt;combat&gt;
+        ///    &lt;rating&gt;0&lt;/rating&gt;
+        ///    &lt;damage&gt;2&lt;/damage&gt;
+        ///  &lt;/combat&gt;
+        ///  &lt;text&gt;
+        ///    &lt;eng&gt;It shrieked and flapped its wings. I thought of the empty shell of a beetle, and the soft loam of rotting earth. It cocked its carapaced head at m [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Byakhee {
+            get {
+                return ResourceManager.GetString("Byakhee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;monster&gt;
+        ///  &lt;number&gt;
+        ///    &lt;base&gt;2&lt;/base&gt;
+        ///  &lt;/number&gt;
+        ///  &lt;name&gt;Chtonian&lt;/name&gt;
+        ///  &lt;movement&gt;Unique&lt;/movement&gt;
+        ///  &lt;awareness&gt;1&lt;/awareness&gt;
+        ///  &lt;dimension&gt;Triangle&lt;/dimension&gt;
+        ///  &lt;horror&gt;
+        ///    &lt;rating&gt;-2&lt;/rating&gt;
+        ///    &lt;damage&gt;2&lt;/damage&gt;
+        ///  &lt;/horror&gt;
+        ///  &lt;toughness&gt;3&lt;/toughness&gt;
+        ///  &lt;combat&gt;
+        ///    &lt;rating&gt;-3&lt;/rating&gt;
+        ///    &lt;damage&gt;3&lt;/damage&gt;
+        ///  &lt;/combat&gt;
+        ///  &lt;text&gt;
+        ///    &lt;eng&gt;Instead of moving, roll a die. On a 4-6, all investigators in Arkham lose 1 Stamina.&lt;/eng&gt;
+        ///  &lt;/text&gt;
+        ///&lt;/monster&gt;.
+        /// </summary>
+        internal static string Chtonian {
+            get {
+                return ResourceManager.GetString("Chtonian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;monster&gt;
+        ///  &lt;number&gt;
+        ///    &lt;base&gt;6&lt;/base&gt;
+        ///  &lt;/number&gt;
+        ///  &lt;name&gt;Cultist&lt;/name&gt;
+        ///  &lt;movement&gt;Normal&lt;/movement&gt;
+        ///  &lt;awareness&gt;-3&lt;/awareness&gt;
+        ///  &lt;dimension&gt;Moon&lt;/dimension&gt;
+        ///  &lt;toughness&gt;1&lt;/toughness&gt;
+        ///  &lt;combat&gt;
+        ///    &lt;rating&gt;1&lt;/rating&gt;
+        ///    &lt;damage&gt;1&lt;/damage&gt;
+        ///  &lt;/combat&gt;
+        ///  &lt;text&gt;
+        ///    &lt;eng&gt;Ia! Ia! Cthulhu Fthagn! Ph&apos;nglui mglw&apos;nfah Cthulhu R&apos;lyeh wgah&apos;nagl fhtagn!&lt;/eng&gt;
+        ///  &lt;/text&gt;
+        ///&lt;/monster&gt;.
+        /// </summary>
+        internal static string Cultist {
+            get {
+                return ResourceManager.GetString("Cultist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;monster&gt;
+        ///  &lt;number&gt;
+        ///    &lt;base&gt;6&lt;/base&gt;
+        ///  &lt;/number&gt;
+        ///  &lt;name&gt;Dark Young&lt;/name&gt;
+        ///  &lt;movement&gt;Stationary&lt;/movement&gt;
+        ///  &lt;awareness&gt;-2&lt;/awareness&gt;
+        ///  &lt;dimension&gt;Hexagon&lt;/dimension&gt;
+        ///  &lt;horror&gt;
+        ///    &lt;rating&gt;0&lt;/rating&gt;
+        ///    &lt;damage&gt;3&lt;/damage&gt;
+        ///  &lt;/horror&gt;
+        ///  &lt;toughness&gt;3&lt;/toughness&gt;
+        ///  &lt;combat&gt;
+        ///    &lt;rating&gt;-1&lt;/rating&gt;
+        ///    &lt;damage&gt;3&lt;/damage&gt;
+        ///  &lt;/combat&gt;
+        ///  &lt;text&gt;
+        ///    &lt;eng&gt;The trees trembled, leaves fluttering around us. The earth shook as the thuds of giant hooved feet grew ever closer...&lt;/eng&gt;
+        ///  &lt;/text&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Dark_Young {
+            get {
+                return ResourceManager.GetString("Dark_Young", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;monster&gt;
+        ///  &lt;number&gt;
+        ///    &lt;base&gt;2&lt;/base&gt;
+        ///  &lt;/number&gt;
+        ///  &lt;name&gt;Dimensional Shambler&lt;/name&gt;
+        ///  &lt;movement&gt;Fast&lt;/movement&gt;
+        ///  &lt;awareness&gt;-3&lt;/awareness&gt;
+        ///  &lt;dimension&gt;Square&lt;/dimension&gt;
+        ///  &lt;horror&gt;
+        ///    &lt;rating&gt;-2&lt;/rating&gt;
+        ///    &lt;damage&gt;1&lt;/damage&gt;
+        ///  &lt;/horror&gt;
+        ///  &lt;toughness&gt;1&lt;/toughness&gt;
+        ///  &lt;combat&gt;
+        ///    &lt;rating&gt;-2&lt;/rating&gt;
+        ///    &lt;damage&gt;0&lt;/damage&gt;
+        ///  &lt;/combat&gt;
+        ///  &lt;text&gt;
+        ///    &lt;eng&gt;If you fail a Combat or Evade check against Dimensional Shambler, you are lost in time and space.&lt;/eng&gt;
+        ///  &lt;/text&gt;
+        ///&lt;/monster&gt;.
+        /// </summary>
+        internal static string Dimensional_Shambler {
+            get {
+                return ResourceManager.GetString("Dimensional_Shambler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;deck type=&quot;neighborhood&quot; name_eng=&quot;Downtown&quot;&gt;
+        ///  &lt;card&gt;
+        ///    &lt;location name_eng=&quot;Arkham Asylum&quot;&gt;
+        ///      &lt;text&gt;
+        ///        &lt;eng&gt;
+        ///          In the Doctor&apos;s study, you find a book of helpful notes gathered from inmate interviews. Make a Lore (+0) check and consult the following chart:
+        ///          Successes:
+        ///          0)   Their stories fill you with horror even as you learn a few bits of knowledge. Lose 1 Sanity and gain 1 Clue token.
+        ///          1-2) You find several pieces of useful information. Gain 2 Clue t [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Downtown {
             get {
@@ -84,6 +231,36 @@ namespace ArkhamHorrorCore.Properties {
         internal static string FrenchHill {
             get {
                 return ResourceManager.GetString("FrenchHill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;monster&gt;
+        ///  &lt;number&gt;
+        ///    &lt;base&gt;1&lt;/base&gt;
+        ///  &lt;/number&gt;
+        ///  &lt;name&gt;God of the Bloody Tongue&lt;/name&gt;
+        ///  &lt;movement&gt;Normal&lt;/movement&gt;
+        ///  &lt;awareness&gt;1&lt;/awareness&gt;
+        ///  &lt;dimension&gt;Triangle&lt;/dimension&gt;
+        ///  &lt;horror&gt;
+        ///    &lt;rating&gt;-3&lt;/rating&gt;
+        ///    &lt;damage&gt;3&lt;/damage&gt;
+        ///  &lt;/horror&gt;
+        ///  &lt;toughness&gt;4&lt;/toughness&gt;
+        ///  &lt;combat&gt;
+        ///    &lt;rating&gt;-4&lt;/rating&gt;
+        ///    &lt;damage&gt;4&lt;/damage&gt;
+        ///  &lt;/combat&gt;
+        ///  &lt;abilities&gt;
+        ///    &lt;ability name=&quot;Mask&quot; /&gt;
+        ///    &lt;ability name=&quot;Endless&quot; /&gt;
+        ///    &lt;ability name=&quot;Overwhelming&quot;&gt;1&lt;/ability&gt;
+        ///    &lt;ability name=&quot;Nigh [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string God_of_the_Bloody_Tongue {
+            get {
+                return ResourceManager.GetString("God_of_the_Bloody_Tongue", resourceCulture);
             }
         }
         

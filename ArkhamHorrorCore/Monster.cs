@@ -35,26 +35,18 @@ namespace ArkhamHorrorCore
         None
     };
 
-    enum MonsterType
+    struct MonsterAbility
     {
-        None,
-        Mask,
-        Spawn
-    };
-
-    enum MonsterAbility
-    {
-        Nightmarish,
-        Elusive,
-        PhysicalResistance
+        private readonly string _name;
+        private readonly int _value;
     }
 
     public class Monster
     {
         // Description
-        private readonly MonsterType _type;
         private readonly string _name;
         private readonly string _text;
+        private readonly List<MonsterAbility> _abilities;
 
         // Movement
         private readonly Movement _movement;

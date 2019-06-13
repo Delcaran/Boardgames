@@ -1,0 +1,21 @@
+<monster>
+  <number>
+    <base>3</base>
+  </number>
+  <name>Byakee</name>
+  <movement>Flying</movement>
+  <awareness>-2</awareness>
+  <dimension>Circle</dimension>
+  <horror>
+    <rating>-1</rating>
+    <damage>1</damage>
+  </horror>
+  <toughness>1</toughness>
+  <combat>
+    <rating>0</rating>
+    <damage>2</damage>
+  </combat>
+  <text>
+    <eng>It shrieked and flapped its wings. I thought of the empty shell of a beetle, and the soft loam of rotting earth. It cocked its carapaced head at me, black teeth clicking against each other.</eng>
+  </text>
+</monster>

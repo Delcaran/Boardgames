@@ -1,0 +1,21 @@
+<monster>
+  <number>
+    <base>2</base>
+  </number>
+  <name>Chtonian</name>
+  <movement>Unique</movement>
+  <awareness>1</awareness>
+  <dimension>Triangle</dimension>
+  <horror>
+    <rating>-2</rating>
+    <damage>2</damage>
+  </horror>
+  <toughness>3</toughness>
+  <combat>
+    <rating>-3</rating>
+    <damage>3</damage>
+  </combat>
+  <text>
+    <eng>Instead of moving, roll a die. On a 4-6, all investigators in Arkham lose 1 Stamina.</eng>
+  </text>
+</monster>

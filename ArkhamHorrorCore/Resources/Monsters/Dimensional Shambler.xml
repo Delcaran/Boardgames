@@ -1,0 +1,21 @@
+<monster>
+  <number>
+    <base>2</base>
+  </number>
+  <name>Dimensional Shambler</name>
+  <movement>Fast</movement>
+  <awareness>-3</awareness>
+  <dimension>Square</dimension>
+  <horror>
+    <rating>-2</rating>
+    <damage>1</damage>
+  </horror>
+  <toughness>1</toughness>
+  <combat>
+    <rating>-2</rating>
+    <damage>0</damage>
+  </combat>
+  <text>
+    <eng>If you fail a Combat or Evade check against Dimensional Shambler, you are lost in time and space.</eng>
+  </text>
+</monster>

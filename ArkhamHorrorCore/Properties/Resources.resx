@@ -118,31 +118,49 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Byakhee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters\Byakhee.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Chtonian" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters\Chtonian.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Cultist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters\Cultist.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Dark_Young" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters\Dark Young.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Dimensional_Shambler" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters\Dimensional Shambler.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="Downtown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Decks\Downtown.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\Neighborhoods\Downtown.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="Easttown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Decks\Easttown.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\Neighborhoods\Easttown.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="FrenchHill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Decks\FrenchHill.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\Neighborhoods\FrenchHill.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="God_of_the_Bloody_Tongue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters\God of the Bloody Tongue.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="MerchantDistrict" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Decks\MerchantDistrict.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\Neighborhoods\MerchantDistrict.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="MiskatonicUniversity" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Decks\MiskatonicUniversity.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\Neighborhoods\MiskatonicUniversity.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="Northside" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Decks\Northside.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\Neighborhoods\Northside.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="Rivertown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Decks\Rivertown.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\Neighborhoods\Rivertown.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="Southside" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Decks\Southside.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\Neighborhoods\Southside.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="Uptown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Decks\Uptown.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\Neighborhoods\Uptown.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

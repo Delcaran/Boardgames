@@ -90,6 +90,51 @@
   <ItemGroup>
     <None Include="Resources\Decks\Uptown.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monsters\Cultist.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Neighborhoods\Downtown.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Neighborhoods\Easttown.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Neighborhoods\FrenchHill.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Neighborhoods\MerchantDistrict.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Neighborhoods\MiskatonicUniversity.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Neighborhoods\Northside.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Neighborhoods\Rivertown.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Neighborhoods\Southside.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Neighborhoods\Uptown.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monsters\Byakhee.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monsters\Chtonian.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monsters\Dark Young.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monsters\Dimensional Shambler.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Monsters\God of the Bloody Tongue.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

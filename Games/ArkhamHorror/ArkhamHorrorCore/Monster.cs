@@ -4,7 +4,7 @@ using System.Xml;
 
 namespace ArkhamHorrorCore
 {
-    enum Dimension
+    public enum Dimension
     {
         Plus,
         Slash,
@@ -15,13 +15,7 @@ namespace ArkhamHorrorCore
         Triangle
     };
 
-    enum DimensionColor
-    {
-        Black,
-        White
-    }
-
-    enum Movement
+    public enum Movement
     {
         Normal, // black
         Stationary, // yellow
@@ -33,6 +27,22 @@ namespace ArkhamHorrorCore
         None
     };
 
+    public enum MonsterAbility
+    {
+        Ambush,
+        Elusive,
+        Endless,
+        MagicalImmunity,
+        MagicalResistance,
+        Nightmarish,
+        Overwhelming,
+        PhysicalImmunity,
+        PhysicalResistance,
+        WeaponImmunity,
+        Mask,
+        Spawn
+    }
+
 
     public class Monster
     {
@@ -40,12 +50,11 @@ namespace ArkhamHorrorCore
         private readonly Dictionary<string, string> _name; // <language, name>
         private readonly Dictionary<string, string> _text; // <language, text>
         private readonly int _available;
-        private readonly Dictionary<string, int> _abilities; // <name, value>
+        private readonly Dictionary<MonsterAbility, int> _abilities; // <name, value>
 
         // Movement
         private readonly Movement _movement;
         private readonly Dimension _dimension;
-        private readonly DimensionColor _dimensionColor;
         private readonly int _awareness; // modifier to Evade Check (top right)
 
         // Combat
@@ -112,31 +121,7 @@ namespace ArkhamHorrorCore
             }
         }
 
-        internal DimensionColor DimensionColor
-        {
-            get
-            {
-                return _dimensionColor;
-            }
-        }
-
-        internal Dimension Dimension
-        {
-            get
-            {
-                return _dimension;
-            }
-        }
-
-        internal Movement Movement
-        {
-            get
-            {
-                return _movement;
-            }
-        }
-
-        public Dictionary<string, int> Abilities
+        public Dictionary<MonsterAbility, int> Abilities
         {
             get
             {
@@ -168,6 +153,22 @@ namespace ArkhamHorrorCore
             }
         }
 
+        public Dimension Dimension
+        {
+            get
+            {
+                return _dimension;
+            }
+        }
+
+        public Movement Movement
+        {
+            get
+            {
+                return _movement;
+            }
+        }
+
         public Monster(string xml)
         {
             // Init
@@ -175,7 +176,7 @@ namespace ArkhamHorrorCore
             _hasHorrorRating = false;
             _name = new Dictionary<string, string>();
             _text = new Dictionary<string, string>();
-            _abilities = new Dictionary<string, int>();
+            _abilities = new Dictionary<MonsterAbility, int>();
 
             // Load data from XML
             XmlDocument monsterDocument = new XmlDocument();
@@ -185,7 +186,9 @@ namespace ArkhamHorrorCore
             }
             catch(System.IO.FileNotFoundException e)
             {
+                Console.WriteLine("Error loading XML");
                 Console.WriteLine(e.ToString());
+                return;
             }
             XmlNode root = monsterDocument.FirstChild;
             if(root.HasChildNodes)
@@ -213,7 +216,14 @@ namespace ArkhamHorrorCore
                             }
                             break;
                         case "movement":
-                            // TODO
+                            foreach(Movement val in Enum.GetValues(typeof(Movement)))
+                            {
+                                if(val.ToString() == node.InnerText)
+                                {
+                                    _movement = val;
+                                    break;
+                                }
+                            }
                             break;
                         case "awareness":
                             int tmp = 0;
@@ -221,7 +231,14 @@ namespace ArkhamHorrorCore
                             _awareness = tmp;
                             break;
                         case "dimension":
-                            // TODO
+                            foreach (Dimension val in Enum.GetValues(typeof(Dimension)))
+                            {
+                                if (val.ToString() == node.InnerText)
+                                {
+                                    _dimension = val;
+                                    break;
+                                }
+                            }
                             break;
                         case "toughness": Int32.TryParse(node.InnerText, out _toughness); break;
                         case "combat":
@@ -241,8 +258,8 @@ namespace ArkhamHorrorCore
                             {
                                 switch(node.ChildNodes[j].Name.ToLower())
                                 {
-                                    case "rating": Int32.TryParse(node.ChildNodes[j].InnerText, out _combatRating); break;
-                                    case "damage": Int32.TryParse(node.ChildNodes[j].InnerText, out _combatDamage); break;
+                                    case "rating": Int32.TryParse(node.ChildNodes[j].InnerText, out _horrorRating); break;
+                                    case "damage": Int32.TryParse(node.ChildNodes[j].InnerText, out _horrorDamage); break;
                                     default: Console.WriteLine("Unknow horror parameter " + node.ChildNodes[j].Name); break;
                                 }
                             }
@@ -250,10 +267,17 @@ namespace ArkhamHorrorCore
                         case "abilities":
                             for (int a = 0; a < node.ChildNodes.Count; ++a)
                             {
-                                XmlElement abilityNode = (XmlElement) node.ChildNodes[a];
-                                int value = 0;
-                                Int32.TryParse(abilityNode.InnerText, out value);
-                                _abilities.Add(abilityNode.GetAttribute("name").ToLower(), value);
+                                string abilityString = node.ChildNodes[a].Name.ToLower();
+                                foreach (MonsterAbility ability in Enum.GetValues(typeof(MonsterAbility)))
+                                {
+                                    if (ability.ToString().ToLower() == abilityString)
+                                    {
+                                        int value = 0;
+                                        Int32.TryParse(node.ChildNodes[a].InnerText, out value);
+                                        _abilities.Add(ability, value);
+                                        break;
+                                    }
+                                }
                             }
                             break;
                         case "text":
@@ -265,6 +289,33 @@ namespace ArkhamHorrorCore
                         default: Console.WriteLine("Unknown parameter " + node.Name); break;
                     }
                 }
+            }
+        }
+
+        public void Fight(int playerFight, int mods, bool blessed, bool cursed)
+        {
+            int dice = playerFight + mods + _combatRating;
+            Random rand = new Random();
+            int successes = 0;
+            int successThreshold = 5;
+            if(blessed)
+            {
+                successThreshold = 4;
+            }
+            if (cursed)
+            {
+                successThreshold = 6;
+            }
+            for(int die=0; die<dice; ++die)
+            {
+                if(rand.Next(1, 7) >= successThreshold)
+                {
+                    ++successes;
+                }
+            }
+            if(successes < _toughness)
+            {
+                // TODO: stamina damage
             }
         }
     }

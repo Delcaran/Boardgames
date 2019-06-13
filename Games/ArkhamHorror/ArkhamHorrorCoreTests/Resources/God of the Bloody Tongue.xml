@@ -1,0 +1,26 @@
+<monster>
+  <number>
+    <base>1</base>
+  </number>
+  <name>
+    <eng>God of the Bloody Tongue</eng>
+  </name>
+  <movement>Normal</movement>
+  <awareness>1</awareness>
+  <dimension>Triangle</dimension>
+  <horror>
+    <rating>-3</rating>
+    <damage>3</damage>
+  </horror>
+  <toughness>4</toughness>
+  <combat>
+    <rating>-4</rating>
+    <damage>4</damage>
+  </combat>
+  <abilities>
+    <mask />
+    <endless />
+    <overwhelming>1</overwhelming>
+    <nightmarish>1</nightmarish>
+  </abilities>
+</monster>

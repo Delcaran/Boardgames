@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArkhamHorrorCore", "Games\A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArkhamHorrorCoreTests", "Games\ArkhamHorror\ArkhamHorrorCoreTests\ArkhamHorrorCoreTests.csproj", "{058971B5-6947-4954-AC48-3E6EE0C08954}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Common\Utils\Utils.csproj", "{F1854233-57A0-45B1-AA14-C78855E39C2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{058971B5-6947-4954-AC48-3E6EE0C08954}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{058971B5-6947-4954-AC48-3E6EE0C08954}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{058971B5-6947-4954-AC48-3E6EE0C08954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1854233-57A0-45B1-AA14-C78855E39C2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1854233-57A0-45B1-AA14-C78855E39C2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1854233-57A0-45B1-AA14-C78855E39C2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1854233-57A0-45B1-AA14-C78855E39C2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

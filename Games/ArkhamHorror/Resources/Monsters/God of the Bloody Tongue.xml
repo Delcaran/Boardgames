@@ -2,7 +2,9 @@
   <number>
     <base>1</base>
   </number>
-  <name>God of the Bloody Tongue</name>
+  <name>
+    <eng>God of the Bloody Tongue</eng>
+  </name>
   <movement>Normal</movement>
   <awareness>1</awareness>
   <dimension>Triangle</dimension>

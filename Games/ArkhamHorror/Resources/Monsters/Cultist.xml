@@ -2,7 +2,9 @@
   <number>
     <base>6</base>
   </number>
-  <name>Cultist</name>
+  <name>
+    <eng>Cultist</eng>
+  </name>
   <movement>Normal</movement>
   <awareness>-3</awareness>
   <dimension>Moon</dimension>

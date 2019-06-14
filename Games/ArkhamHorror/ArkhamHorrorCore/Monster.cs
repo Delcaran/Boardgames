@@ -292,17 +292,18 @@ namespace ArkhamHorrorCore
             }
         }
 
-        public void Fight(int playerFight, int mods, bool blessed, bool cursed)
+        // TODO: questa cosa non va fatta qui... e' una funzione generica, non specifica del mostro...
+        public void Fight(Investigator investigator, int mods)
         {
-            int dice = playerFight + mods + _combatRating;
+            int dice = investigator.Fight + mods + _combatRating;
             Random rand = new Random();
             int successes = 0;
             int successThreshold = 5;
-            if(blessed)
+            if(investigator.Blessed)
             {
                 successThreshold = 4;
             }
-            if (cursed)
+            else if (investigator.Cursed)
             {
                 successThreshold = 6;
             }
@@ -315,7 +316,7 @@ namespace ArkhamHorrorCore
             }
             if(successes < _toughness)
             {
-                // TODO: stamina damage
+                investigator.damageStamina(_combatDamage);
             }
         }
     }

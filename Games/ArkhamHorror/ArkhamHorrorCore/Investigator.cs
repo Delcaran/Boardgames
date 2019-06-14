@@ -97,7 +97,7 @@ namespace ArkhamHorrorCore
         // Statistics
         private int _sanity;
         private int _stamina;
-        private int _focus;
+        private readonly int _focus;
         private int _focusLeft;
         private int _speedSneakMin;
         private int _speed;
@@ -118,12 +118,130 @@ namespace ArkhamHorrorCore
         // Possessions
         private int _money;
         private int _clues;
+        private bool _blessed;
+        private bool _cursed;
 
         private Location _location;
 
+        public int Stamina
+        {
+            get
+            {
+                return _stamina;
+            }
+
+            set
+            {
+                _stamina = value;
+            }
+        }
+
+        public int Sanity
+        {
+            get
+            {
+                return _sanity;
+            }
+
+            set
+            {
+                _sanity = value;
+            }
+        }
+
+        public int Focus
+        {
+            get
+            {
+                return _focus;
+            }
+        }
+
+        public int FocusLeft
+        {
+            get
+            {
+                return _focusLeft;
+            }
+        }
+
+        public int Speed
+        {
+            get
+            {
+                return _speed;
+            }
+        }
+
+        public int Sneak
+        {
+            get
+            {
+                return _sneak;
+            }
+        }
+
+        public int Fight
+        {
+            get
+            {
+                return _fight;
+            }
+        }
+
+        public int Will
+        {
+            get
+            {
+                return _will;
+            }
+        }
+
+        public int Lore
+        {
+            get
+            {
+                return _lore;
+            }
+        }
+
+        public int Luck
+        {
+            get
+            {
+                return _luck;
+            }
+        }
+
+        public bool Blessed
+        {
+            get
+            {
+                return _blessed;
+            }
+
+            set
+            {
+                _blessed = value;
+            }
+        }
+
+        public bool Cursed
+        {
+            get
+            {
+                return _cursed;
+            }
+
+            set
+            {
+                _cursed = value;
+            }
+        }
+
         private void ChangeStat(Statistic stat, int val)
         {
-            int value = Math.Min(val, _focusLeft);
+            int value = Math.Min(val, FocusLeft);
             switch(stat)
             {
                 case Statistic.Speed:
@@ -158,6 +276,30 @@ namespace ArkhamHorrorCore
             _lore = NumericUtils.Clamp(_speed, _loreLuckMin, _loreLuckMax);
             _luck = NumericUtils.Clamp(_speed, _loreLuckMin, _loreLuckMax);
             _focusLeft -= value;
+        }
+
+        public void damageStamina(int damage)
+        {
+            _stamina -= damage;
+            //TODO: handle death
+        }
+
+        public void damageSanity(int damage)
+        {
+            _sanity -= damage;
+            //TODO: handle madness
+        }
+
+        public void healStamina(int heal)
+        {
+            _stamina += heal;
+            //TODO: handle max
+        }
+
+        public void healSanity(int heal)
+        {
+            _sanity += heal;
+            //TODO: handle max
         }
     }
 }

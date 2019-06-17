@@ -1,4 +1,6 @@
-﻿namespace ArkhamHorrorCore
+﻿using CardDeck;
+
+namespace ArkhamHorrorCore
 {
     enum Encounter
     {
@@ -14,7 +16,7 @@
         Monster
     }
 
-    class Location
+    class Location : Area
     {
         private readonly string _name;
         private readonly Encounter _encounter1;

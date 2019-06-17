@@ -8,7 +8,7 @@ namespace CardDeck
 {
     public abstract class Deck
     {
-        protected SortedList<int, Card> _cards;
+        protected List<Card> _cards;
 
         // shuffle with Durstenfeld's algorithm
         public void Shuffle()
@@ -23,15 +23,36 @@ namespace CardDeck
             }
         }
 
-        public SortedList<int, Card> Draw(int num)
+        public List<Card> Draw(int num)
         {
-            SortedList<int, Card> cards = new SortedList<int, Card>();
+            List<Card> cards = new List<Card>();
             for(int i = 0; i < Math.Min(num, _cards.Count); ++i)
             {
-                cards.Add(i, _cards[i]);
-                _cards.Remove(i);
+                Card c = _cards[i];
+                cards.Add(c);
+                _cards.Remove(c);
             }
             return cards;
+        }
+
+        public void PutBack(List<Card> cards)
+        {
+            foreach(Card card in cards)
+            {
+                _cards.Add(card);
+            }
+        }
+
+        public Card Draw()
+        {
+            return Draw(1).ElementAt(0);
+        }
+
+        public void PutBack(Card card)
+        {
+            List<Card> cards = new List<Card>();
+            cards.Add(card);
+            PutBack(cards);
         }
     }
 }

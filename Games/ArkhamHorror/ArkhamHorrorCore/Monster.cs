@@ -291,33 +291,5 @@ namespace ArkhamHorrorCore
                 }
             }
         }
-
-        // TODO: questa cosa non va fatta qui... e' una funzione generica, non specifica del mostro...
-        public void Fight(Investigator investigator, int mods)
-        {
-            int dice = investigator.Fight + mods + _combatRating;
-            Random rand = new Random();
-            int successes = 0;
-            int successThreshold = 5;
-            if(investigator.Blessed)
-            {
-                successThreshold = 4;
-            }
-            else if (investigator.Cursed)
-            {
-                successThreshold = 6;
-            }
-            for(int die=0; die<dice; ++die)
-            {
-                if(rand.Next(1, 7) >= successThreshold)
-                {
-                    ++successes;
-                }
-            }
-            if(successes < _toughness)
-            {
-                investigator.damageStamina(_combatDamage);
-            }
-        }
     }
 }

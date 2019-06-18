@@ -1,0 +1,3 @@
+[submodule "Games/ArkhamHorror/Database"]
+	path = Games/ArkhamHorror/Database
+	url = https://github.com/Delcaran/ArkhamHorror.git
